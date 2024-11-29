@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beleza Tropical</title>
+    <link rel="stylesheet" href="Style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+<!-- Navbar Principal -->
+<nav class="navbar">
+    <div class="logo">
+        <a href="index.html">
+            <img src="images/logo.png" alt="Logo Beleza Tropical" width="150">
+        </a>
+    </div>
+    <div class="search-bar">
+        <input type="text" id="searchInput" 
+            placeholder="Pesquisar plantas..." 
+            data-lang-pt="Pesquisar plantas..." 
+            data-lang-en="Search plants...">
+        <button onclick="search()" 
+            data-lang-pt="Pesquisar" 
+            data-lang-en="Search">Pesquisar</button>
+    </div>
+    <div class="cart">
+        <button onclick="toggleCart()" aria-label="Carrinho">
+            🛒 
+            <span data-lang-pt="Carrinho" data-lang-en="Cart">Carrinho</span>
+            <span id="cart-count" class="cart-count">0</span>
+        </button>
+    </div>
+    <div class="auth">
+        <li>
+            <a href="login.html" class="btn-auth" data-lang-pt="Login" data-lang-en="Login">Login</a>
+        </li>
+        <li>
+            <a href="cadastro.html" class="btn-auth" data-lang-pt="Cadastro" data-lang-en="Register">Cadastro</a>
+        </li>
+    </div>
+ <div class="theme-toggle">
+    <button id="themeToggle" aria-label="Alterar tema" title="Alterar tema">🌓</button>
+  </div>
+</nav>
+
+<!-- Navbar Secundária -->
+<nav class="navbar-secondary">
+    <ul>
+        <li><a href="#home" data-lang-pt="Início" data-lang-en="Home">Início</a></li>
+        <li><a href="produtos.html" data-lang-pt="Produtos" data-lang-en="Products">Produtos</a></li>
+        <li><a href="#sobre-nos" data-lang-pt="Sobre Nós" data-lang-en="About Us">Sobre Nós</a></li>
+        <li><a href="#servicos" data-lang-pt="Nossos Serviços" data-lang-en="Our Services">Nossos Serviços</a></li>
+        <li><a href="Contatos.html" data-lang-pt="Contato" data-lang-en="Contact">Contato</a></li>
+    </ul>
+</nav>
+<!-- Cart Modal -->
+<div id="cartModal" class="cart-modal">
+    <div class="cart-modal-content">
+        <span class="close" onclick="toggleCart()">&times;</span>
+        <h2 data-lang-pt="Itens do Carrinho" data-lang-en="Cart Items">Itens do Carrinho</h2>
+        <div id="cart-items">
+            <p data-lang-pt="Seu carrinho está vazio." data-lang-en="Your cart is empty.">Seu carrinho está vazio.</p>
+        </div>
+        <a href="finalizar.html">
+            <button class="btn-checkout" data-lang-pt="Finalizar Compra" data-lang-en="Checkout">Finalizar Compra</button>
+        </a>        
+    </div>
+</div>
+
+<!-- Hero Section -->
+<section class="hero" id="home">
+    <div class="container">
+        <h1 data-lang-pt="Bem-vindo à Beleza Tropical" data-lang-en="Welcome to Beleza Tropical">Bem-vindo à Beleza Tropical </h1>
+        <p data-lang-pt="Descubra plantas tropicais raras e exóticas para todas as suas necessidades."
+           data-lang-en="Discover rare and exotic tropical plants for all your needs.">
+            Descubra plantas tropicais raras e exóticas para todas as suas necessidades.
+        </p>
+        <a href="#mais-vendidos" class="btn" data-lang-pt="Mais Vendidos" data-lang-en="Best Sellers">Mais Vendidos </a>
+    </div>
+</section>
+<!-- Seção de Produtos -->
+<section class="produtos" id="mais-vendidos">
+    <h2 data-lang-pt="Mais Vendidos" data-lang-en="Best Sellers">Mais Vendidos</h2>  
+    <div class="produtos-grid">
+        <div class="produto">
+            <img src="images/Plumeria.png" 
+     alt="Buquê de Plumeria" 
+     class="produto-img" 
+     data-lang-en="Frangipani Bouquet">
+            <h3 data-lang-pt="Buquê de Plumeria" data-lang-en="Frangipani Bouquet">Buquê de Anturio</h3>
+            <p class="preco" data-lang-pt="R$ 200,00" data-lang-en="R$ 200.00">R$ 200,00</p>
+            <a href="#" class="btn-adicionar" onclick="addToCart('Buquê de Plumeria', 200.00); return false;" 
+               data-lang-pt="Adicionar ao Carrinho" data-lang-en="Add to Cart">Adicionar ao Carrinho</a>
+        </div>
+        <div class="produto">
+           <img src="images/Alpinia-Rosa.png" 
+     alt="Arranjo de Alpinia Rosa" 
+     class="produto-img" 
+     data-lang-en="Pink Ginger Arrangement">
+            <h3 data-lang-pt="Arranjo de Alpinia Rosa" data-lang-en="Pink Ginger Arrangement">Arranjo de Alpinia Rosa</h3>
+            <p class="preco" data-lang-pt="R$ 200,00" data-lang-en="R$ 200.00">R$ 200,00</p>
+            <a href="#" class="btn-adicionar" onclick="addToCart('Arranjo de Alpinia Rosa', 200.00); return false;" 
+               data-lang-pt="Adicionar ao Carrinho" data-lang-en="Add to Cart">Adicionar ao Carrinho</a>
+        </div>
+        <div class="produto">
+            <img src="images/Hibisco-Arranjo.png" 
+     alt="Arranjo de Hibisco" 
+     class="produto-img" 
+     data-lang-en="Hibiscus Arrangement">
+            <h3 data-lang-pt="Arranjo de Hibisco" data-lang-en="Hibiscus Arrangement">Arranjo de Hibisco</h3>
+            <p class="preco" data-lang-pt="R$ 350,00" data-lang-en="R$ 350,00">R$ 350,00</p>
+            <a href="#" class="btn-adicionar" onclick="addToCart('Arranjo de Hibisco', 350.00); return false;" 
+               data-lang-pt="Adicionar ao Carrinho" data-lang-en="Add to Cart">Adicionar ao Carrinho</a>
+        </div>
+    </div>
+</section>
+
+<!-- Nossos Serviços Section -->
+<section id="servicos" class="servicos">
+    <h2 data-lang-pt="Nossos Serviços" data-lang-en="Our Services">Nossos Serviços</h2>
+    <div class="servicos-container">
+        <div class="servico">
+            <h3 data-lang-pt="Consultoria para Plantio" data-lang-en="Planting Consulting">Consultoria para Plantio</h3>
+            <p data-lang-pt="Oferecemos orientação especializada para escolher e plantar as melhores espécies para o seu ambiente." 
+               data-lang-en="We offer expert guidance on selecting and planting the best species for your environment.">
+               Oferecemos orientação especializada para escolher e plantar as melhores espécies para o seu ambiente.
+            </p>
+        </div>
+        <div class="servico">
+            <h3 data-lang-pt="Manutenção de Jardins" data-lang-en="Garden Maintenance">Manutenção de Jardins</h3>
+            <p data-lang-pt="Serviços de manutenção periódica para garantir que seu jardim esteja sempre bonito e saudável." 
+               data-lang-en="Periodic maintenance services to ensure your garden stays beautiful and healthy.">
+               Serviços de manutenção periódica para garantir que seu jardim esteja sempre bonito e saudável.
+            </p>
+        </div>
+        <div class="servico">
+            <h3 data-lang-pt="Casamentos e Eventos" data-lang-en="Weddings and Events">Casamentos e Eventos</h3>
+            <p data-lang-pt="Transforme seus momentos especiais em memórias inesquecíveis!" 
+               data-lang-en="Turn your special moments into unforgettable memories!">
+               Transforme seus momentos especiais em memórias inesquecíveis!
+            </p>
+        </div>
+    </div>
+</section>
+    </section>
+<!-- Sobre Nós Section -->
+<section id="sobre-nos" class="sobre-nos">
+    <h2 data-lang-pt="Sobre Nós" data-lang-en="About Us">Sobre Nós</h2>
+    <div class="sobre-nos-container">
+        <div class="imagem-sobre-nos">
+            <img src="images/imagem-sobre-nos.jpg" alt="Nossa loja de plantas tropicais">
+        </div>
+        <div class="texto-sobre-nos">
+            <h3 data-lang-pt="Nossa História" data-lang-en="Our Story">Nossa História</h3>
+            <p data-lang-pt="Desde nossa criação, buscamos oferecer uma seleção cuidadosa de plantas que refletem a biodiversidade única das regiões tropicais. Cada planta é escolhida com carinho para transformar qualquer ambiente em um refúgio de beleza natural." 
+               data-lang-en="Since our founding, we have aimed to offer a carefully selected range of plants that reflect the unique biodiversity of tropical regions. Each plant is chosen with care to transform any space into a natural beauty retreat.">
+               Desde nossa criação, buscamos oferecer uma seleção cuidadosa de plantas que refletem a biodiversidade única das regiões tropicais. Cada planta é escolhida com carinho para transformar qualquer ambiente em um refúgio de beleza natural.
+            </p>
+
+            <h3 data-lang-pt="Missão e Valores" data-lang-en="Mission and Values">Missão e Valores</h3>
+            <p data-lang-pt="Nosso compromisso é com a qualidade e a sustentabilidade. Trabalhamos com produtores locais para garantir que cada planta seja cultivada de forma responsável, respeitando a natureza e preservando a biodiversidade." 
+               data-lang-en="Our commitment is to quality and sustainability. We work with local producers to ensure each plant is responsibly grown, respecting nature and preserving biodiversity.">
+               Nosso compromisso é com a qualidade e a sustentabilidade. Trabalhamos com produtores locais para garantir que cada planta seja cultivada de forma responsável, respeitando a natureza e preservando a biodiversidade.
+            </p>
+
+            <h3 data-lang-pt="Por que escolher a Beleza Tropical?" data-lang-en="Why Choose Beleza Tropical?">Por que escolher a Beleza Tropical?</h3>
+            <ul>
+                <li data-lang-pt="Variedade exclusiva de plantas tropicais raras" data-lang-en="Exclusive variety of rare tropical plants">Variedade exclusiva de plantas tropicais raras</li>
+                <li data-lang-pt="Suporte especializado para cuidar de suas plantas" data-lang-en="Specialized support to care for your plants">Suporte especializado para cuidar de suas plantas</li>
+                <li data-lang-pt="Produtos ecologicamente responsáveis e de alta qualidade" data-lang-en="Ecologically responsible and high-quality products">Produtos ecologicamente responsáveis e de alta qualidade</li>
+                <li data-lang-pt="Entrega rápida e segura em todo o Brasil" data-lang-en="Fast and secure delivery throughout Brazil">Entrega rápida e segura em todo o Brasil</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- Chatbot -->
+<button id="toggle-chatbot" onclick="toggleChatbot()" 
+    data-lang-pt="🐝" data-lang-en="🐝">🐝</button>
+
+<div id="chatbot-container">
+    <button id="close-chatbot" onclick="toggleChatbot()" 
+        data-lang-pt="×" data-lang-en="×">×</button>
+    <div id="chat-display"></div>
+    <div id="chat-input">
+        <input type="text" id="user-input" 
+            placeholder="Digite sua mensagem..." 
+            onkeydown="if(event.key === 'Enter') sendMessage()"
+            data-lang-pt="Digite sua mensagem..." data-lang-en="Type your message...">
+        <button onclick="sendMessage()" 
+            data-lang-pt="Enviar" data-lang-en="Send">Enviar</button>
+    </div>
+</div>
+
+<!-- Rodapé -->
+<footer id="footer" class="footer">
+    <div class="footer-top">
+        <div class="footer-column">
+            <h4 data-lang-pt="Mapa do Site" data-lang-en="Site Map">Mapa do Site</h4>
+            <ul>
+                <li><a href="#" data-lang-pt="Quem somos" data-lang-en="About Us">Quem somos</a></li>
+                <li><a href="#" data-lang-pt="Investidores" data-lang-en="Investors">Investidores</a></li>
+                <li><a href="#" data-lang-pt="Notícias" data-lang-en="News">Notícias</a></li>
+                <li><a href="#" data-lang-pt="Promoções" data-lang-en="Promotions">Promoções</a></li>
+                <li><a href="#" data-lang-pt="FAQ Loja Online" data-lang-en="FAQ Online Store">FAQ Loja Online</a></li>
+                <li><a href="#" data-lang-pt="Celular Legal" data-lang-en="Legal Mobile">Celular Legal</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4 data-lang-pt="Lojas e Serviços" data-lang-en="Stores and Services">Lojas e Serviços</h4>
+            <ul>
+                <li><a href="#" data-lang-pt="Lojas Beleza Tropical" data-lang-en="Beleza Tropical Stores">Lojas Beleza Tropical</a></li>
+                <li><a href="#" data-lang-pt="Club BT" data-lang-en="Club BT">Club BT</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4 data-lang-pt="Precisa de Suporte?" data-lang-en="Need Support?">Precisa de Suporte?</h4>
+            <ul>
+                <li><a href="#" data-lang-pt="Chat Online" data-lang-en="Live Chat">Chat Online</a></li>
+                <li><a href="#" data-lang-pt="E-mail" data-lang-en="Email">E-mail</a></li>
+                <li><a href="#" data-lang-pt="Fale Conosco" data-lang-en="Contact Us">Fale Conosco</a></li>
+                <li><a href="#" data-lang-pt="Assistência Online" data-lang-en="Online Assistance">Assistência Online</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4 data-lang-pt="Siga-nos" data-lang-en="Follow Us">Siga-nos</h4>
+            <div class="social-icons">
+                <a href="#"><img src="images/facebook-icon.png" alt="Facebook" aria-label="Facebook"></a>
+                <a href="#"><img src="images/twitter-icon.png" alt="Twitter" aria-label="Twitter"></a>
+                <a href="#"><img src="images/instagram-icon.png" alt="Instagram" aria-label="Instagram"></a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p data-lang-pt="&copy; 2024 Beleza Tropical. Todos os direitos reservados." data-lang-en="&copy; 2024 Beleza Tropical. All rights reserved.">&copy; 2024 Beleza Tropical. Todos os direitos reservados.</p>
+        <div class="footer-links">
+            <a href="#" data-lang-pt="Acessibilidade" data-lang-en="Accessibility">Acessibilidade</a> |
+            <a href="#" data-lang-pt="Termos & Condições" data-lang-en="Terms & Conditions">Termos & Condições</a> |
+            <a href="#" data-lang-pt="Privacidade" data-lang-en="Privacy">Privacidade</a> |
+            <a href="#" data-lang-pt="Legal" data-lang-en="Legal">Legal</a>
+        </div>
+        <div class="footer-language">
+            <span data-lang-pt="Selecione o idioma:" data-lang-en="Select Language:">Selecione o idioma:</span>
+            <button id="btn-pt" aria-label="Mudar para Português" onclick="changeLanguage('pt')">PT</button>
+            <button id="btn-en" aria-label="Switch to English" onclick="changeLanguage('en')">EN</button>
+        </div>        
+    </div>
+</footer>
+</body>
+</html>
+

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-lang-pt="Beleza Tropical" data-lang-en="Tropical Beauty">Beleza Tropical</title>
+    <link rel="stylesheet" href="produtos-detalhados.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+ <!-- Navbar Principal -->
+<nav class="navbar">
+    <div class="logo">
+        <a href="index.html">
+            <img src="images/logo.png" alt="Logo Beleza Tropical" width="150">
+        </a>
+    </div>
+    <div class="search-bar">
+        <input type="text" id="searchInput" 
+            placeholder="Pesquisar plantas..." 
+            data-lang-pt="Pesquisar plantas..." 
+            data-lang-en="Search plants...">
+        <button onclick="search()" 
+            data-lang-pt="Pesquisar" 
+            data-lang-en="Search">Pesquisar</button>
+    </div>
+    <div class="cart">
+        <button onclick="toggleCart()" aria-label="Carrinho">
+            🛒 
+            <span data-lang-pt="Carrinho" data-lang-en="Cart">Carrinho</span>
+            <span id="cart-count" class="cart-count">0</span>
+        </button>
+    </div>
+    <div class="auth">
+        <li>
+            <a href="login.html" class="btn-auth" data-lang-pt="Login" data-lang-en="Login">Login</a>
+        </li>
+        <li>
+            <a href="cadastro.html" class="btn-auth" data-lang-pt="Cadastro" data-lang-en="Register">Cadastro</a>
+        </li>
+    </div>
+ <div class="theme-toggle">
+    <button id="themeToggle" aria-label="Alterar tema" title="Alterar tema">🌓</button>
+  </div>
+</nav>
+
+<!-- Navbar Secundária -->
+<nav class="navbar-secondary">
+    <ul>
+        <li><a href="index.html" data-lang-pt="Início" data-lang-en="Home">Início</a></li>
+        <li><a href="produtos.html" data-lang-pt="Produtos" data-lang-en="Products">Produtos</a></li>
+        <li><a href="index.html" data-lang-pt="Sobre Nós" data-lang-en="About Us">Sobre Nós</a></li>
+        <li><a href="index.html" data-lang-pt="Nossos Serviços" data-lang-en="Our Services">Nossos Serviços</a></li>
+        <li><a href="Contatos.html" data-lang-pt="Contato" data-lang-en="Contact">Contato</a></li>
+    </ul>
+</nav>
+<!-- Cart Modal -->
+<div id="cartModal" class="cart-modal">
+    <div class="cart-modal-content">
+        <span class="close" onclick="toggleCart()">&times;</span>
+        <h2 data-lang-pt="Itens do Carrinho" data-lang-en="Cart Items">Itens do Carrinho</h2>
+        <div id="cart-items">
+            <p data-lang-pt="Seu carrinho está vazio." data-lang-en="Your cart is empty.">Seu carrinho está vazio.</p>
+        </div>
+        <a href="finalizar.html">
+            <button class="btn-checkout" data-lang-pt="Finalizar Compra" data-lang-en="Checkout">Finalizar Compra</button>
+        </a>        
+    </div>
+</div>
+
+   <!-- Seção de Destaques do Produto -->
+<section class="product-detail">
+    <h1 data-lang-pt="Buquê de Anturio" data-lang-en="Anthurium Bouquet">Buquê de Anturio</h1>
+    <div class="product-details">
+        <div class="product-image">
+            <img src="images/Red-Anthurium-Bouquet.png" alt="Anturio" width="400">
+        </div>
+        
+        
+        <!-- Simulando preço, economia e informações de estoque -->
+        <div class="purchase-info">
+            <p><strong data-lang-pt="Preço" data-lang-en="Price">Preço</strong>: R$ R$ 300.00</p>
+            <p><strong data-lang-pt="Economia de" data-lang-en="Savings">Economia de</strong>: R$ 50,00 (14%)</p>
+            <p>
+                <strong data-lang-pt="Em estoque" data-lang-en="In stock">Em estoque</strong>: 
+                <span data-lang-pt="Entrega GRÁTIS" data-lang-en="FREE Delivery">Entrega GRÁTIS</span>
+            </p>
+            
+
+            <!-- Botões de ação: Adicionar ao Carrinho e Comprar agora -->
+            <a href="#" class="btn-adicionar" onclick="addToCart('Buquê de Anturio', 300.00); return false;" 
+            data-lang-pt="Adicionar ao Carrinho" data-lang-en="Add to Cart">Adicionar ao Carrinho</a>
+            <button class="btn-add-cart" onclick="window.location.href='Finalizar.html'" 
+        data-lang-pt="Comprar agora" data-lang-en="Buy Now">Comprar agora</button>
+        </div>
+    </div>
+</section>
+
+<!-- Seção de informações da planta -->
+<section class="plant-info">
+    <h3 data-lang-pt="Sobre este item" data-lang-en="About this item">Sobre este item</h3>
+    <ul class="info-list">
+        <li><strong data-lang-pt="Nome científico" data-lang-en="Scientific Name">NOME CIENTÍFICO:</strong> <span data-lang-pt="Anthurium andraeanum" data-lang-en="Anthurium andraeanum">Anthurium andraeanum</span></li>
+        <li><strong data-lang-pt="Nome comum" data-lang-en="Common Name">NOME COMUM:</strong> <span data-lang-pt="Antúrio" data-lang-en="Anthurium">Antúrio</span></li>
+        <li><strong data-lang-pt="Descrição" data-lang-en="Description">DESCRIÇÃO:</strong> <span data-lang-pt="Planta perene, pertencente à família Araceae, nativa da América Central e do Sul. Conhecida por suas flores vibrantes e folhas de formato elegante." data-lang-en="Perennial plant from the Araceae family, native to Central and South America. Known for its vibrant flowers and elegant foliage.">Planta perene, pertencente à família Araceae, nativa da América Central e do Sul. Conhecida por suas flores vibrantes e folhas de formato elegante.</span></li>
+        <li><strong data-lang-pt="Folhagem" data-lang-en="Foliage">FOLHAGEM:</strong> <span data-lang-pt="Folhas grandes, brilhantes e de formato arredondado, que podem atingir até 40 cm de comprimento." data-lang-en="Large, glossy, rounded leaves, reaching up to 40 cm in length.">Folhas grandes, brilhantes e de formato arredondado, que podem atingir até 40 cm de comprimento.</span></li>
+        <li><strong data-lang-pt="Flores" data-lang-en="Flowers">FLORES:</strong> <span data-lang-pt="Inflorescências coloridas, com brácteas vermelhas, rosas ou brancas, e uma espádice amarela ou branca no centro." data-lang-en="Colorful inflorescences with red, pink, or white spathes and a yellow or white spadix at the center.">Inflorescências coloridas, com brácteas vermelhas, rosas ou brancas, e uma espádice amarela ou branca no centro.</span></li>
+        <li><strong data-lang-pt="Frutos" data-lang-en="Fruits">FRUTOS:</strong> <span data-lang-pt="Frutos pequenos, de cor vermelha ou laranja, surgem após a floração." data-lang-en="Small fruits, red or orange, appear after flowering.">Frutos pequenos, de cor vermelha ou laranja, surgem após a floração.</span></li>
+        <li><strong data-lang-pt="Luz" data-lang-en="Light">LUZ:</strong> <span data-lang-pt="Prefere luz indireta e brilhante, sendo ideal para ambientes internos com boa iluminação." data-lang-en="Prefers bright indirect light, ideal for indoor environments with good lighting.">Prefere luz indireta e brilhante, sendo ideal para ambientes internos com boa iluminação.</span></li>
+        <li><strong data-lang-pt="Solo" data-lang-en="Soil">SOLO:</strong> <span data-lang-pt="Solo bem drenado, rico em matéria orgânica, ligeiramente ácido." data-lang-en="Well-drained soil, rich in organic matter, slightly acidic.">Solo bem drenado, rico em matéria orgânica, ligeiramente ácido.</span></li>
+        <li><strong data-lang-pt="Clima" data-lang-en="Climate">CLIMA:</strong> <span data-lang-pt="Tropical, adequado para ambientes quentes e úmidos." data-lang-en="Tropical, suitable for warm and humid environments.">Tropical, adequado para ambientes quentes e úmidos.</span></li>
+        <li><strong data-lang-pt="Utilizações" data-lang-en="Uses">UTILIZAÇÕES:</strong> <span data-lang-pt="Planta ornamental muito popular em arranjos florais, jardins internos e como decoração em ambientes internos." data-lang-en="Popular ornamental plant used in floral arrangements, indoor gardens, and as decoration in indoor spaces.">Planta ornamental muito popular em arranjos florais, jardins internos e como decoração em ambientes internos.</span></li>
+    </ul>
+</section>
+
+
+<!-- Produtos Relacionados -->
+<section class="related-products">
+    <h2 data-lang-pt="Produtos Relacionados" data-lang-en="Related Products">Produtos Relacionados</h2>
+    <div class="related-products-list">
+        <div class="related-product">
+            <a href="produto2-buque.html">
+            <img src="images/Plumeria.png" alt="Produto Relacionado">
+            <h3 data-lang-pt="Produto Relacionado" data-lang-en="Related Product">Produto Relacionado</h3>
+            <p data-lang-pt="Plumeria Buquê" data-lang-en="Frangipani Bouquet">Buquê de Plumeria</p></a>
+        </div>
+        <div class="related-product">
+            <a href="produto3-buque.html">
+            <img src="images/Anturio-chocolate.png" alt="Produto Relacionado">
+            <h3 data-lang-pt="Produto Relacionado" data-lang-en="Related Product">Produto Relacionado 2</h3>
+            <p data-lang-pt="Buquê de Anturio Chocolate" data-lang-en="Chocolate Anthurium Bouquet">Buquê de Anturio Chocolate</p></a>
+        </div>
+    </div>
+</section>
+
+<!-- Avaliação de Clientes -->
+<section class="customer-reviews">
+    <h2 data-lang-pt="Avaliações de Clientes" data-lang-en="Customer Reviews">Avaliações de Clientes</h2>
+    <div class="reviews">
+        <div class="review">
+            <p><strong data-lang-pt="João Silva" data-lang-en="John Silva">João Silva</strong> - <span data-lang-pt="5 estrelas" data-lang-en="5 stars">5 estrelas</span></p>
+            <p data-lang-pt="Adorei o antúrio! As flores são deslumbrantes e trouxeram um toque de cor para minha casa. Super recomendo!" data-lang-en="I loved the anthurium! The flowers are stunning and added a splash of color to my home. Highly recommend!">Adorei o antúrio! As flores são deslumbrantes e trouxeram um toque de cor para minha casa. Super recomendo!</p>
+        </div>
+        <div class="review">
+            <p><strong data-lang-pt="Maria Oliveira" data-lang-en="Maria Oliveira">Maria Oliveira</strong> - <span data-lang-pt="4 estrelas" data-lang-en="4 stars">4 estrelas</span></p>
+            <p data-lang-pt="A planta é linda, mas exige um pouco mais de cuidado com a luz. Recomendo para quem tem espaço bem iluminado." data-lang-en="The plant is beautiful, but it requires a bit more care with light. I recommend it for those with well-lit spaces.">A planta é linda, mas exige um pouco mais de cuidado com a luz. Recomendo para quem tem espaço bem iluminado.</p>
+        </div>
+        <div class="review">
+            <p><strong data-lang-pt="Ana Souza" data-lang-en="Ana Souza">Ana Souza</strong> - <span data-lang-pt="5 estrelas" data-lang-en="5 stars">5 estrelas</span></p>
+            <p data-lang-pt="Excelente! O antúrio chegou bem embalado e em perfeito estado. As flores são incríveis!" data-lang-en="Excellent! The anthurium arrived well packaged and in perfect condition. The flowers are amazing!">Excelente! O antúrio chegou bem embalado e em perfeito estado. As flores são incríveis!</p>
+        </div>
+    </div>
+</section>
+
+    <!-- Escrever Avaliação -->
+    <div class="write-review">
+        <h3 data-lang-pt="Escreva uma Avaliação" data-lang-en="Write a Review">Escreva uma Avaliação</h3>
+
+        <!-- Seção de seleção das estrelas -->
+        <div class="star-rating">
+            <span class="star" data-value="1">&#9733;</span>
+            <span class="star" data-value="2">&#9733;</span>
+            <span class="star" data-value="3">&#9733;</span>
+            <span class="star" data-value="4">&#9733;</span>
+            <span class="star" data-value="5">&#9733;</span>
+        </div>
+        
+        <!-- Campo de comentário -->
+        <textarea placeholder="Deixe sua avaliação aqui..." id="review-text" data-lang-pt="Deixe sua avaliação aqui..." data-lang-en="Leave your review here..."></textarea>
+        <button id="submit-review" data-lang-pt="Enviar Avaliação" data-lang-en="Submit Review">Enviar Avaliação</button>
+    </div>
+</section>
+
+<!-- Chatbot -->
+<button id="toggle-chatbot" onclick="toggleChatbot()" data-lang-pt="🐝" data-lang-en="🐝">🐝</button>
+
+<div id="chatbot-container">
+    <button id="close-chatbot" onclick="toggleChatbot()" data-lang-pt="×" data-lang-en="×">×</button>
+    <div id="chat-display"></div>
+    <div id="chat-input">
+        <input type="text" id="user-input" 
+            placeholder="Digite sua mensagem..." 
+            onkeydown="if(event.key === 'Enter') sendMessage()" 
+            data-lang-pt="Digite sua mensagem..." data-lang-en="Type your message...">
+        <button onclick="sendMessage()" data-lang-pt="Enviar" data-lang-en="Send">Enviar</button>
+    </div>
+</div>
+
+<!-- Rodapé -->
+<footer id="footer" class="footer">
+    <div class="footer-top">
+        <div class="footer-column">
+            <h4 data-lang-pt="Mapa do Site" data-lang-en="Site Map">Mapa do Site</h4>
+            <ul>
+                <li><a href="#" data-lang-pt="Quem somos" data-lang-en="About Us">Quem somos</a></li>
+                <li><a href="#" data-lang-pt="Investidores" data-lang-en="Investors">Investidores</a></li>
+                <li><a href="#" data-lang-pt="Notícias" data-lang-en="News">Notícias</a></li>
+                <li><a href="#" data-lang-pt="Promoções" data-lang-en="Promotions">Promoções</a></li>
+                <li><a href="#" data-lang-pt="FAQ Loja Online" data-lang-en="FAQ Online Store">FAQ Loja Online</a></li>
+                <li><a href="#" data-lang-pt="Celular Legal" data-lang-en="Legal Mobile">Celular Legal</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4 data-lang-pt="Lojas e Serviços" data-lang-en="Stores and Services">Lojas e Serviços</h4>
+            <ul>
+                <li><a href="#" data-lang-pt="Lojas Beleza Tropical" data-lang-en="Beleza Tropical Stores">Lojas Beleza Tropical</a></li>
+                <li><a href="#" data-lang-pt="Club BT" data-lang-en="Club BT">Club BT</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4 data-lang-pt="Precisa de Suporte?" data-lang-en="Need Support?">Precisa de Suporte?</h4>
+            <ul>
+                <li><a href="#" data-lang-pt="Chat Online" data-lang-en="Live Chat">Chat Online</a></li>
+                <li><a href="#" data-lang-pt="E-mail" data-lang-en="Email">E-mail</a></li>
+                <li><a href="#" data-lang-pt="Fale Conosco" data-lang-en="Contact Us">Fale Conosco</a></li>
+                <li><a href="#" data-lang-pt="Assistência Online" data-lang-en="Online Assistance">Assistência Online</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4 data-lang-pt="Siga-nos" data-lang-en="Follow Us">Siga-nos</h4>
+            <div class="social-icons">
+                <a href="#"><img src="images/facebook-icon.png" alt="Facebook" aria-label="Facebook"></a>
+                <a href="#"><img src="images/twitter-icon.png" alt="Twitter" aria-label="Twitter"></a>
+                <a href="#"><img src="images/instagram-icon.png" alt="Instagram" aria-label="Instagram"></a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p data-lang-pt="&copy; 2024 Beleza Tropical. Todos os direitos reservados." data-lang-en="&copy; 2024 Beleza Tropical. All rights reserved.">&copy; 2024 Beleza Tropical. Todos os direitos reservados.</p>
+        <div class="footer-links">
+            <a href="#" data-lang-pt="Acessibilidade" data-lang-en="Accessibility">Acessibilidade</a> |
+            <a href="#" data-lang-pt="Termos & Condições" data-lang-en="Terms & Conditions">Termos & Condições</a> |
+            <a href="#" data-lang-pt="Privacidade" data-lang-en="Privacy">Privacidade</a> |
+            <a href="#" data-lang-pt="Legal" data-lang-en="Legal">Legal</a>
+        </div>
+        <div class="footer-language">
+            <span data-lang-pt="Selecione o idioma:" data-lang-en="Select Language:">Selecione o idioma:</span>
+            <button id="btn-pt" aria-label="Mudar para Português" onclick="changeLanguage('pt')">PT</button>
+            <button id="btn-en" aria-label="Switch to English" onclick="changeLanguage('en')">EN</button>
+        </div>        
+    </div>
+</footer>
+</body>
+</html>

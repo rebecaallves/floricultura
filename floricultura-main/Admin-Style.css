@@ -1,0 +1,395 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial;
+    color: #333;
+    background-color: #f0f8f4;
+}
+
+/* Navbar Principal */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #d0f0c0;
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar .logo img {
+    max-height: 150px; /* Ajuste conforme o tamanho que deseja */
+    width: auto;
+}
+
+.navbar .search-bar input {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #2f5d62;
+}
+
+.navbar .search-bar button {
+    padding: 8px 12px;
+    background-color: #2f5d62;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.navbar .search-bar button:hover {
+    background-color: #e63946;
+}
+
+.navbar .cart button {
+    background-color: #2f5d62;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.navbar .cart button:hover {
+    background-color: #e63946;
+}
+
+.navbar .auth .btn-auth {
+    color: #2f5d62;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 18px;
+}
+
+.navbar .auth .btn-auth:hover {
+    color: #e63946;
+}
+
+/* Navbar Secundária */
+.navbar-secondary {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f1faee;
+    padding: 10px 0;
+    width: 100%;
+    position: sticky;
+    top: 50px; /* Para garantir que fique logo abaixo da principal */
+    z-index: 999;
+}
+
+.navbar-secondary ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.navbar-secondary ul li a {
+    text-decoration: none;
+    color: #2f5d62;
+    font-size: 18px;
+}
+
+.navbar-secondary ul li a:hover {
+    color: #e63946;
+}
+
+/* Barra de Pesquisa */
+.search-bar {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar input[type="text"] {
+    padding: 20px;
+    border-radius: 20px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    outline: none;
+    margin-right: 10px;
+    background-color: #f4f9f4;
+    color: #333;
+    width: 900px; /* Ajuste a largura conforme necessário */
+} 
+
+.search-bar button {
+    padding: 8px 15px;
+    background-color: #2a9d8f;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background-color: #264653;
+}
+
+/* Seção do Carrinho */
+.cart {
+    position: relative;
+    margin-left: 10px;
+}
+
+.cart button {
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: auto;
+}
+
+/* Ajusta o tamanho do ícone para maior */
+.cart button img {
+    width: 70px; /* Aumente o valor para ajustar o tamanho do ícone */
+    height: 70px; /* Aumente o valor para ajustar o tamanho do ícone */
+}
+
+/* Estilo para o contador de itens no carrinho */
+.cart-count {
+    background-color: #E56681;
+    color: white;
+    font-weight: bold;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 0.8em;
+    position: absolute;
+    top: -10px; /* Ajuste conforme o novo tamanho do ícone */
+    right: -10px; /* Ajuste conforme o novo tamanho do ícone */
+}
+
+/* Estilos de hover para o botão do carrinho */
+.cart button:hover {
+    background-color: #2e6327;
+}
+
+.cart button:hover img {
+    filter: brightness(1.2);
+}
+
+
+/* Modal do Carrinho */
+.cart-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 350px;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: -2px 0 15px rgba(0, 0, 0, 0.3);
+    overflow-y: auto;
+    z-index: 1000;
+}
+
+.cart-modal-content {
+    padding: 20px;
+    position: relative;
+    font-family: 'Arial', sans-serif;
+}
+
+.cart-modal-content .close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+.cart-modal-content h2 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    color: #3b7d32;
+}
+
+#cart-items p {
+    font-size: 1.2em;
+    color: #5d5d5d;
+    text-align: center;
+}
+
+.btn-checkout {
+    background-color: #2a9d8f;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.btn-checkout:hover {
+    background-color: #264653;
+}
+
+
+
+/* Estilos do Container */
+.container {
+    max-width: 400px; /* Largura máxima do formulário */
+    margin: 50px auto; /* Centraliza verticalmente e horizontalmente */
+    padding: 20px;
+    border: 1px solid #ddd; /* Borda do container */
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra */
+    background-color: #f4f9f4; /* Cor de fundo do container */
+}
+
+/* Estilos do Formulário */
+form {
+    display: flex;
+    flex-direction: column; /* Alinha elementos em coluna */
+}
+
+label {
+    margin-bottom: 5px; /* Espaço abaixo dos labels */
+    font-weight: bold;
+}
+
+/* Estilos para os campos de entrada */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="code"] {
+    padding: 10px; /* Espaçamento interno dos campos */
+    margin-bottom: 15px; /* Espaçamento entre os campos */
+    border: 1px solid #ddd; /* Borda dos campos */
+    border-radius: 4px; /* Bordas arredondadas */
+    font-size: 16px;
+    outline: none; /* Remove contorno padrão */
+    background-color: #fff; /* Fundo branco para os campos */
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="code"]:focus {
+    border-color: #2a9d8f; /* Cor do contorno ao focar */
+}
+
+/* Estilo para o botão */
+button {
+    padding: 10px; /* Espaçamento interno do botão */
+    background-color: #3b7d32; /* Cor de fundo do botão */
+    color: #fff; /* Cor do texto do botão */
+    border: none; /* Remove borda */
+    border-radius: 5px; /* Bordas arredondadas do botão */
+    cursor: pointer; /* Muda o cursor para pointer */
+    font-size: 16px; /* Tamanho da fonte */
+}
+
+button:hover {
+    background-color: #2e6327; /* Cor do botão ao passar o mouse */
+}
+
+/* Estilo do Link de Cadastro */
+p {
+    margin-top: 15px; /* Espaço acima do parágrafo */
+    text-align: center; /* Centraliza o texto */
+}
+
+p a {
+    color: #2a9d8f; /* Cor do link */
+    text-decoration: none; /* Remove sublinhado */
+}
+
+p a:hover {
+    text-decoration: underline; /* Sublinha ao passar o mouse */
+}
+
+button[type="submit"][formaction="login.html"] {
+    background-color: #2a9d8f; 
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%; 
+    display: block;
+}
+
+.footer {
+    background-color: #f5f5f5;
+    padding: 20px;
+    color: #333;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 20px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 200px;
+    margin: 10px;
+}
+
+.footer-column h4 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.footer-column ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 8px;
+}
+
+.footer-column ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.footer-column ul li a:hover {
+    color: #000;
+}
+
+.social-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.social-icons a img {
+    width: 24px;
+    height: 24px;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+    font-size: 12px;
+}
+
+.footer-links a {
+    margin-right: 10px;
+    text-decoration: none;
+    color: #333;
+}
+
+.footer-links a:hover {
+    color: #000;
+}

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beleza Tropical</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+<!-- Navbar Principal -->
+<nav class="navbar">
+    <div class="logo">
+        <a href="index.html">
+            <img src="images/logo.png" alt="Logo Beleza Tropical" width="150">
+        </a>
+    </div>
+    <div class="search-bar">
+        <input type="text" id="searchInput" 
+            placeholder="Pesquisar plantas..." 
+            data-lang-pt="Pesquisar plantas..." 
+            data-lang-en="Search plants...">
+        <button onclick="search()" 
+            data-lang-pt="Pesquisar" 
+            data-lang-en="Search">Pesquisar</button>
+    </div>
+    <div class="cart">
+        <button onclick="toggleCart()" aria-label="Carrinho">
+            🛒 
+            <span data-lang-pt="Carrinho" data-lang-en="Cart">Carrinho</span>
+            <span id="cart-count" class="cart-count">0</span>
+        </button>
+    </div>
+    <div class="auth">
+        <li>
+            <a href="login.html" class="btn-auth" data-lang-pt="Login" data-lang-en="Login">Login</a>
+        </li>
+        <li>
+            <a href="cadastro.html" class="btn-auth" data-lang-pt="Cadastro" data-lang-en="Register">Cadastro</a>
+        </li>
+    </div>
+   <div class="theme-toggle">
+    <button id="themeToggle" aria-label="Alterar tema" title="Alterar tema">🌓</button>
+  </div>
+</nav>
+
+<!-- Navbar Secundária -->
+<nav class="navbar-secondary">
+    <ul>
+        <li><a href="#home" data-lang-pt="Início" data-lang-en="Home">Início</a></li>
+        <li><a href="produtos.html" data-lang-pt="Produtos" data-lang-en="Products">Produtos</a></li>
+        <li><a href="#sobre-nos" data-lang-pt="Sobre Nós" data-lang-en="About Us">Sobre Nós</a></li>
+        <li><a href="#servicos" data-lang-pt="Nossos Serviços" data-lang-en="Our Services">Nossos Serviços</a></li>
+        <li><a href="Contatos.html" data-lang-pt="Contato" data-lang-en="Contact">Contato</a></li>
+    </ul>
+</nav>
+<!-- Cart Modal -->
+<div id="cartModal" class="cart-modal">
+    <div class="cart-modal-content">
+        <span class="close" onclick="toggleCart()">&times;</span>
+        <h2 data-lang-pt="Itens do Carrinho" data-lang-en="Cart Items">Itens do Carrinho</h2>
+        <div id="cart-items">
+            <p data-lang-pt="Seu carrinho está vazio." data-lang-en="Your cart is empty.">
+                Seu carrinho está vazio.
+            </p>
+        </div>
+        <a href="finalizar.html">
+            <button class="btn-checkout" data-lang-pt="Finalizar Compra" data-lang-en="Checkout">
+                Finalizar Compra
+            </button>
+        </a>        
+    </div>
+</div>
+
+<div class="container">
+    <h2 data-lang-pt="Cadastro" data-lang-en="Sign Up">Cadastro</h2>
+    <form>
+        <label for="username" data-lang-pt="Usuário:" data-lang-en="Username:">Usuário:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="email" data-lang-pt="Email:" data-lang-en="Email:">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="password" data-lang-pt="Senha:" data-lang-en="Password:">Senha:</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="button" onclick="window.location.href='index.html';" data-lang-pt="Cadastrar" data-lang-en="Sign Up">Cadastrar</button>
+    </form>
+    <p data-lang-pt="Já tem uma conta? Faça login aqui" 
+       data-lang-en="Already have an account? Log in here">
+        Já tem uma conta? <a href="login.html" data-lang-pt="Faça login aqui" data-lang-en="Log in here">Faça login aqui</a>
+    </p>
+    <p data-lang-pt="Caso seja Administrador: Cadastro Administrador" 
+       data-lang-en="If you're an Administrator: Administrator Sign-up">
+        Caso seja Administrador: <a href="cadastro-admin.html" data-lang-pt="Cadastro Administrador" data-lang-en="Administrator Sign-up">Cadastro Administrador</a>
+    </p>
+</div>
+
+<!-- Chatbot -->
+<button id="toggle-chatbot" onclick="toggleChatbot()" 
+    data-lang-pt="🐝" data-lang-en="🐝">🐝</button>
+
+<div id="chatbot-container">
+    <button id="close-chatbot" onclick="toggleChatbot()" 
+        data-lang-pt="×" data-lang-en="×">×</button>
+    <div id="chat-display"></div>
+    <div id="chat-input">
+        <input type="text" id="user-input" 
+            placeholder="Digite sua mensagem..." 
+            onkeydown="if(event.key === 'Enter') sendMessage()"
+            data-lang-pt="Digite sua mensagem..." data-lang-en="Type your message...">
+        <button onclick="sendMessage()" 
+            data-lang-pt="Enviar" data-lang-en="Send">Enviar</button>
+    </div>
+</div>
+
+
+                         <!-- Rodapé -->
+<footer id="footer" class="footer">
+    <div class="footer-top">
+        <div class="footer-column">
+            <h4 data-lang-pt="Mapa do Site" data-lang-en="Site Map">Mapa do Site</h4>
+            <ul>
+                <li><a href="#" data-lang-pt="Quem somos" data-lang-en="About Us">Quem somos</a></li>
+                <li><a href="#" data-lang-pt="Investidores" data-lang-en="Investors">Investidores</a></li>
+                <li><a href="#" data-lang-pt="Notícias" data-lang-en="News">Notícias</a></li>
+                <li><a href="#" data-lang-pt="Promoções" data-lang-en="Promotions">Promoções</a></li>
+                <li><a href="#" data-lang-pt="FAQ Loja Online" data-lang-en="FAQ Online Store">FAQ Loja Online</a></li>
+                <li><a href="#" data-lang-pt="Celular Legal" data-lang-en="Legal Mobile">Celular Legal</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4 data-lang-pt="Lojas e Serviços" data-lang-en="Stores and Services">Lojas e Serviços</h4>
+            <ul>
+                <li><a href="#" data-lang-pt="Lojas Beleza Tropical" data-lang-en="Beleza Tropical Stores">Lojas Beleza Tropical</a></li>
+                <li><a href="#" data-lang-pt="Club BT" data-lang-en="Club BT">Club BT</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4 data-lang-pt="Precisa de Suporte?" data-lang-en="Need Support?">Precisa de Suporte?</h4>
+            <ul>
+                <li><a href="#" data-lang-pt="Chat Online" data-lang-en="Live Chat">Chat Online</a></li>
+                <li><a href="#" data-lang-pt="E-mail" data-lang-en="Email">E-mail</a></li>
+                <li><a href="#" data-lang-pt="Fale Conosco" data-lang-en="Contact Us">Fale Conosco</a></li>
+                <li><a href="#" data-lang-pt="Assistência Online" data-lang-en="Online Assistance">Assistência Online</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4 data-lang-pt="Siga-nos" data-lang-en="Follow Us">Siga-nos</h4>
+            <div class="social-icons">
+                <a href="#"><img src="images/facebook-icon.png" alt="Facebook" aria-label="Facebook"></a>
+                <a href="#"><img src="images/twitter-icon.png" alt="Twitter" aria-label="Twitter"></a>
+                <a href="#"><img src="images/instagram-icon.png" alt="Instagram" aria-label="Instagram"></a>
+                <a href="#"><img src="images/youtube-icon.png" alt="YouTube" aria-label="YouTube"></a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p data-lang-pt="&copy; 2024 Beleza Tropical. Todos os direitos reservados." data-lang-en="&copy; 2024 Beleza Tropical. All rights reserved.">&copy; 2024 Beleza Tropical. Todos os direitos reservados.</p>
+        <div class="footer-links">
+            <a href="#" data-lang-pt="Acessibilidade" data-lang-en="Accessibility">Acessibilidade</a> |
+            <a href="#" data-lang-pt="Termos & Condições" data-lang-en="Terms & Conditions">Termos & Condições</a> |
+            <a href="#" data-lang-pt="Privacidade" data-lang-en="Privacy">Privacidade</a> |
+            <a href="#" data-lang-pt="Legal" data-lang-en="Legal">Legal</a>
+        </div>
+        <div class="footer-language">
+            <span data-lang-pt="Selecione o idioma:" data-lang-en="Select Language:">Selecione o idioma:</span>
+            <button id="btn-pt" aria-label="Mudar para Português" onclick="changeLanguage('pt')">PT</button>
+            <button id="btn-en" aria-label="Switch to English" onclick="changeLanguage('en')">EN</button>
+        </div>        
+    </div>
+</footer>
+</body>
+</html>
+
